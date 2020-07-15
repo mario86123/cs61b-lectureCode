@@ -65,6 +65,16 @@ public class Lists1Exercises {
       return L;
     }
 
+    public static IntList squareDestructiveR(IntList L) {
+      if (L == null) {
+        return L;
+      } else {
+        L.first *= L.first;
+        L.rest = squareDestructiveR(L.rest);
+        return L;
+      }
+    }
+
     public static void printList(IntList L) {
       int size = L.size();
       for (int i = 0; i < size; i += 1) {
@@ -88,6 +98,7 @@ public class Lists1Exercises {
         // System.out.println(dincrList(L, 3));   
         printList(incrList(L, 5));
         printList(dincrList(L, 3));
+        printList(squareDestructiveR(L));
         printList(squareR(L));
         printList(squareDestructiveI(L));
         printList(squareI(L));
