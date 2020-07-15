@@ -41,6 +41,22 @@ public class Lists1Exercises {
       return tmp;
     }
 
+    public static IntList squareI(IntList L) {
+      IntList Q, ptrQ, ptrL = L;
+      if (L == null){
+        return null;
+      }
+      Q = new IntList(ptrL.first * ptrL.first, null);
+      ptrQ = Q;
+      while (ptrL.rest != null) {
+        ptrL = ptrL.rest;
+        ptrQ.rest = new IntList(ptrL.first * ptrL.first, null);
+        ptrQ = ptrQ.rest;
+      }
+      return Q;
+
+    }
+
     public static void printList(IntList L) {
       int size = L.size();
       for (int i = 0; i < size; i += 1) {
@@ -65,5 +81,6 @@ public class Lists1Exercises {
         printList(incrList(L, 5));
         printList(dincrList(L, 3));
         printList(squareR(L));
+        printList(squareI(L));
     }
 }
