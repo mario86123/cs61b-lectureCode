@@ -31,6 +31,16 @@ public class Lists1Exercises {
         return L;
     }
 
+    public static IntList squareR(IntList L) {
+      IntList tmp;
+      if (L.rest == null) {
+        tmp = new IntList(L.first * L.first, null);
+      } else {
+        tmp = new IntList(L.first * L.first, squareR(L.rest));
+      }
+      return tmp;
+    }
+
     public static void printList(IntList L) {
       int size = L.size();
       for (int i = 0; i < size; i += 1) {
@@ -54,5 +64,6 @@ public class Lists1Exercises {
         // System.out.println(dincrList(L, 3));   
         printList(incrList(L, 5));
         printList(dincrList(L, 3));
+        printList(squareR(L));
     }
 }
