@@ -54,7 +54,15 @@ public class Lists1Exercises {
         ptrQ = ptrQ.rest;
       }
       return Q;
+    }
 
+    public static IntList squareDestructiveI(IntList L) {
+      IntList ptr = L;
+      while (ptr != null) {
+        ptr.first = ptr.first * ptr.first;
+        ptr = ptr.rest;
+      }
+      return L;
     }
 
     public static void printList(IntList L) {
@@ -81,6 +89,7 @@ public class Lists1Exercises {
         printList(incrList(L, 5));
         printList(dincrList(L, 3));
         printList(squareR(L));
+        printList(squareDestructiveI(L));
         printList(squareI(L));
     }
 }
